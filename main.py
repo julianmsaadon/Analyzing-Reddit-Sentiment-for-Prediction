@@ -1,3 +1,4 @@
+import csvtool as csvtool
 import praw
 import pandas as pd
 from praw.models import MoreComments
@@ -28,7 +29,7 @@ reddit = praw.Reddit(
 #     print(submission.title)
 #     print(submission.selftext)
 #     print('\n')
-
+#
 titles = []
 selftext = []
 upvotes = []
@@ -46,12 +47,15 @@ for submission in subreddit.new(limit=103513):
     date = datetime.utcfromtimestamp(submission.created_utc)
     dates.append(date)
 
-print(ids)
-print(titles)
-print(selftext)
-print(upvotes)
-print(downvotes)
-print(dates)
+
+
+
+# print(ids)
+# print(titles)
+# print(selftext)
+# print(upvotes)
+# print(downvotes)
+# print(dates)
 
 data = {'Date': dates,
         'ID': ids,
@@ -59,12 +63,13 @@ data = {'Date': dates,
         'Text': selftext,
         'Upvotes': upvotes,
         'Downvotes': downvotes}
-df = pd.DataFrame(data)
 
+columns = ["Date", "ID", "Title", "Text", "Upvotes", "Downvotes"]
+df = pd.read_csv("redditData.csv", usecols=columns)
 
 y_axis = []
-for i in range(len(dates)-1)[::-1]:
-    y_axis.append(int(str(dates[i])[11:13]))
-
-plt.hist(y_axis, bins=24)
-plt.show()
+# for i in range(len(df['Date'])-1)[::-1]:
+#     y_axis.append(int(str(df['Date'][i])[11:13]))
+#
+# plt.hist(y_axis, bins=8)
+# plt.show()

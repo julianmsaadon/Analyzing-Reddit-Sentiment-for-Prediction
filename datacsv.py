@@ -1,4 +1,7 @@
+import csv
+from main import dates, ids, titles, selftext, upvotes, downvotes
 header = ['Date', 'ID', 'Title', 'Text', 'Upvotes', 'Downvotes']
+
 with open('redditData.csv', 'w', encoding='UTF8', newline='') as file:
     writer = csv.writer(file)
     writer.writerow(header)
