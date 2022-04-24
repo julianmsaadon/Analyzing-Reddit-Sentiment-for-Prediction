@@ -1,5 +1,8 @@
+from datetime import datetime
 class Post:
-    SentimentResult = []
+
+    TitleSentimentResult = []
+    TextSentimentResult = []
 
     def __init__(self, Date, ID, Title, Text, Upvotes, Downvotes):
         self.Date = Date
@@ -9,25 +12,59 @@ class Post:
         self.Upvotes = Upvotes
         self.Downvotes = Downvotes
 
+    # def GetDate(self):
+    #     return str(datetime.utcfromtimestamp(self.created_utc))
+    #
+    # def GetID(self):
+    #     return str(self.id)
+    #
+    # def GetTitle(self):
+    #     return str(self.title)
+    #
+    # def GetText(self):
+    #     return str(self.selftext)
+    #
+    # def GetUpvotes(self):
+    #     return str(self.ups)
+    #
+    # def GetDownvotes(self):
+    #     return str(self.downs)
+
     def Ratio(self):
         return self.Upvotes/self.Downvotes
 
     def SentimentText(self):
-        return str(self.Title) + '. ' + str(self.Text)
+        return str(self.Text)
 
-    def EnrichWithSentimentResult(self, sentimentResult):
-        self.SentimentResult = sentimentResult
+    def SentimentTitle(self):
+        return str(self.Title)
 
-    # def GetCompound(self, sentimentResult):
-    #     self.sentimentResult = sentimentResult['compound']
-    def GetCompound(self):
-        return self.SentimentResult['compound']
+    def EnrichWithTitleSentimentResult(self, TitlesentimentResult):
+        self.TitleSentimentResult = TitlesentimentResult
 
-    def GetNeutral(self):
-        return self.SentimentResult['neu']
+    def EnrichWithTextSentimentResult(self, TextsentimentResult):
+        self.TextSentimentResult = TextsentimentResult
 
-    def GetPositive(self):
-        return self.SentimentResult['pos']
+    def GetTitleCompound(self):
+        return self.TitleSentimentResult['compound']
 
-    def GetNegative(self):
-        return self.SentimentResult['neg']
+    def GetTitleNeutral(self):
+        return self.TitleSentimentResult['neu']
+
+    def GetTitlePositive(self):
+        return self.TitleSentimentResult['pos']
+
+    def GetTitleNegative(self):
+        return self.TitleSentimentResult['neg']
+
+    def GetTextCompound(self):
+        return self.TextSentimentResult['compound']
+
+    def GetTextNeutral(self):
+        return self.TextSentimentResult['neu']
+
+    def GetTextPositive(self):
+        return self.TextSentimentResult['pos']
+
+    def GetTextNegative(self):
+        return self.TextSentimentResult['neg']
