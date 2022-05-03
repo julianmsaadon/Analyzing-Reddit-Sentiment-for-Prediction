@@ -97,6 +97,6 @@ header = ['Date', 'ID', 'Title', 'TitleNegative', 'TitleNeutral', 'TitlePositive
 with open('postSentiment.csv', 'w', encoding='UTF8', newline='') as file:
     writer = csv.writer(file)
     writer.writerow(header)
-    for i in range(len(date)-1):
+    for post in posts:
         writer.writerow([date[i], id[i], title[i], TitleNegative[i], TitleNeutral[i], TitlePositive[i], TitleCompound[i], text[i], TextNegative[i], TextNeutral[i], TextPositive[i], TextCompound[i], upvotes[i], downvotes[i]])
-
+# fix this
