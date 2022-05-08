@@ -35,5 +35,5 @@ with open('postSentiment.csv', 'w', encoding='UTF8', newline='') as file:
     writer = csv.writer(file)
     writer.writerow(Post.GetSentimentCsvHeader())
     for i in range(len(posts)-1):
-        if str(posts[i].GetTitleCompound) != 0.0 and str(posts[i].GetTextCompound) != 0.0:
+        if posts[i].GetTitleCompound() != 0.0 and posts[i].GetTextCompound() != 0.0:
             writer.writerow(posts[i].GetSentimentCsvString())
