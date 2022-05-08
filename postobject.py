@@ -1,4 +1,4 @@
-from datetime import datetime
+
 class Post:
 
     TitleSentimentResult = []
@@ -11,24 +11,21 @@ class Post:
         self.Text = Text
         self.Upvotes = Upvotes
         self.Downvotes = Downvotes
+        self.Weight = 0.7
 
-    # def GetDate(self):
-    #     return str(datetime.utcfromtimestamp(self.created_utc))
-    #
-    # def GetID(self):
-    #     return str(self.id)
-    #
-    # def GetTitle(self):
-    #     return str(self.title)
-    #
-    # def GetText(self):
-    #     return str(self.selftext)
-    #
-    # def GetUpvotes(self):
-    #     return str(self.ups)
-    #
-    # def GetDownvotes(self):
-    #     return str(self.downs)
+    def GetRedditCsvString(self):
+        return [self.Date, self.ID, self.Title, self.Text, self.Upvotes, self.Downvotes]
+
+    @staticmethod
+    def GetRedditCsvHeader():
+        return ['Date', 'ID', 'Title', 'Text', 'Upvotes', 'Downvotes']
+
+    def GetSentimentCsvString(self):
+        return [self.Date, self.ID, self.GetWeightedAverageCompound(), self.Title, self.GetTitleNegative(), self.GetTitleNeutral(), self.GetTitlePositive(), self.GetTitleCompound(), self.Text, self.GetTextNegative(), self.GetTextNeutral(), self.GetTextPositive(), self.GetTextCompound(), self.Upvotes, self.Downvotes]
+
+    @staticmethod
+    def GetSentimentCsvHeader():
+        return ['Date', 'ID', 'WeightedAVG', 'Title', 'TitleNegative', 'TitleNeutral', 'TitlePositive', 'TitleCompound', 'Text', 'TextNegative', 'TextNeutral', 'TextPositive', 'TextCompound', 'Upvotes', 'Downvotes']
 
     def Ratio(self):
         return self.Upvotes/self.Downvotes
@@ -44,6 +41,9 @@ class Post:
 
     def EnrichWithTextSentimentResult(self, TextsentimentResult):
         self.TextSentimentResult = TextsentimentResult
+
+    def GetWeightedAverageCompound(self):
+        return (self.GetTitleCompound() * self.Weight) + (self.GetTextCompound() * (1 - self.Weight))
 
     def GetTitleCompound(self):
         return self.TitleSentimentResult['compound']
@@ -68,3 +68,4 @@ class Post:
 
     def GetTextNegative(self):
         return self.TextSentimentResult['neg']
+
