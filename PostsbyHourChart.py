@@ -11,3 +11,4 @@ for i in range(len(Posts.Date)-1)[::-1]:
 
 plt.hist(y_axis, bins=8)
 plt.show()
+

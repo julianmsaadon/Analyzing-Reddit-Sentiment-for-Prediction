@@ -13,9 +13,14 @@ class Post:
         self.Downvotes = Downvotes
         self.Weight = 0.7
 
+    def SetWeight(self, x):
+        self.Weight = x
+
     def GetRedditCsvString(self):
         return [self.Date, self.ID, self.Title, self.Text, self.Upvotes, self.Downvotes]
 
+    def GetReadRedditCsv(row):
+        return Post(row['Date'], row['ID'], row['Title'], row['Text'], row['Upvotes'], row['Downvotes'])
     @staticmethod
     def GetRedditCsvHeader():
         return ['Date', 'ID', 'Title', 'Text', 'Upvotes', 'Downvotes']
