@@ -19,6 +19,9 @@ for submission in subreddit.new(limit=103513):
     post = Post(date, submission.id, submission.title, submission.selftext, submission.ups, submission.downs)
     Posts.append(post)
 
+# For  period of a day (for each day)
+# Search by day
+# append Posts with that specific search
 
 with open('redditData.csv', 'w', encoding='UTF8', newline='') as file:
     writer = csv.writer(file)
