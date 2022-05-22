@@ -5,6 +5,8 @@ import datetime
 from ethdataobject import ethdata
 import csv
 
+san.ApiConfig.api_key = 'pcalqnd4nfrbafjl_jfrieaehyudhetck'
+
 from_date = "2021-05-18"
 to_date = "2022-05-18"
 from_date_limited = "2021-05-18"
@@ -37,27 +39,18 @@ TransVolEth_df = san.get("transaction_volume/ethereum", from_date=from_date_limi
 # print(ClosepriceDict.keys())
 # print(ClosepriceDict[datetime.datetime.strptime('2022-04-18 23:00:00', "%Y-%m-%d %H:%M:%S")])
 
-ClosepriceDict = GetDataFrameDictionary(Closeprice_df.reset_index().assign(data=lambda x: x['datetime'].dt.tz_localize(None))[['data','value']], 'data', 'value')
-EthSpentdict = GetDataFrameDictionary(Ethspent_df.reset_index().assign(data=lambda x: x['datetime'].dt.tz_localize(None))[['data','ethSpent']], 'data', 'ethSpent')
-SocVolRDict = GetDataFrameDictionary(SocVolR_df.reset_index().assign(data=lambda x: x['datetime'].dt.tz_localize(None))[['data','value']], 'data', 'value')
-GasUsedDict = GetDataFrameDictionary(GasUsed_df.reset_index().assign(data=lambda x: x['datetime'].dt.tz_localize(None))[['data','value']], 'data', 'value')
-SentPosRDict = GetDataFrameDictionary(SentPosR_df.reset_index().assign(data=lambda x: x['datetime'].dt.tz_localize(None))[['data','value']], 'data', 'value')
-SentNegRDict = GetDataFrameDictionary(SentNegR_df.reset_index().assign(data=lambda x: x['datetime'].dt.tz_localize(None))[['data','value']], 'data', 'value')
-SentBalRDict = GetDataFrameDictionary(SentBalR_df.reset_index().assign(data=lambda x: x['datetime'].dt.tz_localize(None))[['data','value']], 'data', 'value')
-SentVolRDict = GetDataFrameDictionary(SentVolR_df.reset_index().assign(data=lambda x: x['datetime'].dt.tz_localize(None))[['data','value']], 'data', 'value')
-SocDomRDict = GetDataFrameDictionary(SocDomR_df.reset_index().assign(data=lambda x: x['datetime'].dt.tz_localize(None))[['data','value']], 'data', 'value')
-DailyActiveAddressesDict = GetDataFrameDictionary(DailyActiveAddresses_df.reset_index().assign(data=lambda x: x['datetime'].dt.tz_localize(None))[['data','value']], 'data', 'value')
-TransVolEthDict = GetDataFrameDictionary(TransVolEth_df.reset_index().assign(data=lambda x: x['datetime'].dt.tz_localize(None))[['data','value']], 'data', 'value')
-# print(ClosepriceDict)
-# SocVolRDict = SocVolR_df.reset_index().assign(data=lambda x: x['datetime'].dt.tz_localize(None))[['data','value']].to_dict()
-# GasUsedDict = GasUsed_df.reset_index().assign(data=lambda x: x['datetime'].dt.tz_localize(None))[['data','value']].to_dict()
-# SentPosRDict = SentPosR_df.reset_index().assign(data=lambda x: x['datetime'].dt.tz_localize(None))[['data','value']].to_dict()
-# SentNegRDict = SentNegR_df.reset_index().assign(data=lambda x: x['datetime'].dt.tz_localize(None))[['data','value']].to_dict()
-##  SentBalRDict = SentBalR_df.reset_index().assign(data=lambda x: x['datetime'].dt.tz_localize(None))[['data','value']].to_dict()
-## SentVolRDict = SentVolR_df.reset_index().assign(data=lambda x: x['datetime'].dt.tz_localize(None))[['data','value']].to_dict()
-# SocDomRDict = SocDomR_df.reset_index().assign(data=lambda x: x['datetime'].dt.tz_localize(None))[['data','value']].to_dict()
-# DailyActiveAddressesDict = DailyActiveAddresses_df.reset_index().assign(data=lambda x: x['datetime'].dt.tz_localize(None))[['data','value']].to_dict()
-# TransVolEthDict = TransVolEth_df.reset_index().assign(data=lambda x: x['datetime'].dt.tz_localize(None))[['data','value']].to_dict()
+ClosepriceDict = GetDataFrameDictionary(Closeprice_df.reset_index().assign(data=lambda x: x['datetime'].dt.strftime("%Y-%m-%d %H:%M:%S"))[['data','value']], 'data', 'value')
+EthSpentdict = GetDataFrameDictionary(Ethspent_df.reset_index().assign(data=lambda x: x['datetime'].dt.strftime("%Y-%m-%d %H:%M:%S"))[['data','ethSpent']], 'data', 'ethSpent')
+SocVolRDict = GetDataFrameDictionary(SocVolR_df.reset_index().assign(data=lambda x: x['datetime'].dt.strftime("%Y-%m-%d %H:%M:%S"))[['data','value']], 'data', 'value')
+GasUsedDict = GetDataFrameDictionary(GasUsed_df.reset_index().assign(data=lambda x: x['datetime'].dt.strftime("%Y-%m-%d %H:%M:%S"))[['data','value']], 'data', 'value')
+SentPosRDict = GetDataFrameDictionary(SentPosR_df.reset_index().assign(data=lambda x: x['datetime'].dt.strftime("%Y-%m-%d %H:%M:%S"))[['data','value']], 'data', 'value')
+SentNegRDict = GetDataFrameDictionary(SentNegR_df.reset_index().assign(data=lambda x: x['datetime'].dt.strftime("%Y-%m-%d %H:%M:%S"))[['data','value']], 'data', 'value')
+SentBalRDict = GetDataFrameDictionary(SentBalR_df.reset_index().assign(data=lambda x: x['datetime'].dt.strftime("%Y-%m-%d %H:%M:%S"))[['data','value']], 'data', 'value')
+SentVolRDict = GetDataFrameDictionary(SentVolR_df.reset_index().assign(data=lambda x: x['datetime'].dt.strftime("%Y-%m-%d %H:%M:%S"))[['data','value']], 'data', 'value')
+SocDomRDict = GetDataFrameDictionary(SocDomR_df.reset_index().assign(data=lambda x: x['datetime'].dt.strftime("%Y-%m-%d %H:%M:%S"))[['data','value']], 'data', 'value')
+DailyActiveAddressesDict = GetDataFrameDictionary(DailyActiveAddresses_df.reset_index().assign(data=lambda x: x['datetime'].dt.strftime("%Y-%m-%d %H:%M:%S"))[['data','value']], 'data', 'value')
+TransVolEthDict = GetDataFrameDictionary(TransVolEth_df.reset_index().assign(data=lambda x: x['datetime'].dt.strftime("%Y-%m-%d %H:%M:%S"))[['data','value']], 'data', 'value')
+print(SocVolRDict)
 
 #For each data frame, convert into dictionary with Key = datetime, value = value
 
@@ -68,11 +61,18 @@ mindate = pd.concat([Closeprice_df, Ethspent_df, SocVolR_df, GasUsed_df, SentPos
 # minDate = min(all dictionary keys)
 # maxDate = max(..)
 # Time series list = Keys (mindate -> maxDate, increments of 3 hours)
-timeSeries = pd.date_range(mindate, maxdate, freq="3H")
+timeSeries = pd.date_range(mindate, maxdate, freq="3H").strftime("%Y-%m-%d %H:%M:%S")
 # print(timeSeries)
+# StampSeries = []
+# prefix_Timestamp = "Timestamp('"
+# suffix_Timestamp = "')"
+# for i in range(len(timeSeries)-1):
+    # StampSeries.append(timeSeries[i].strftime("%Y-%m-%d %H:%M:%S"))
+    # StampSeries.append(prefix_Timestamp + str(timeSeries[i].strftime("%Y-%m-%d %H:%M:%S")) + suffix_Timestamp)
+# print(StampSeries)
 
 def GetEthDataValue(timeStamp, dictionary, nullValue):
-    doesExist = timeStamp in ClosepriceDict
+    doesExist = timeStamp in dictionary
     value = dictionary[timeStamp] if doesExist else nullValue  # ternary operator
     return value
 
@@ -89,7 +89,9 @@ for i in range(len(timeSeries)-1):
                       GetEthDataValue(time, SocDomRDict, nullValue), GetEthDataValue(time, DailyActiveAddressesDict, nullValue))
     EthData.append(Ethdata)
 
-print(EthData)
+# print(EthData)
+# print(timeSeries)
+# print(ClosepriceDict)
  #   Create an ethdata object and add it to the ethData list
 
 with open('MarketData.csv', 'w', encoding='UTF8', newline='') as file:
