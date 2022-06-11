@@ -26,23 +26,23 @@ ax2.plot(Ethdata.Date, Ethdata.TransactionVolume, color=colorB)
 ax2.tick_params(axis='y', labelcolor=colorB)
 
 
-ax3 = ax1.twinx()
-colorG = 'tab:green'
-ax3.set_ylabel('Social Reddit Volume', color=colorG)
-ax3.plot(Ethdata.Date, Ethdata.SocialVolumeReddit, color=colorG)
-ax3.tick_params(axis='y', labelcolor=colorG)
-
-ax4 = ax1.twinx()
-colorO = 'tab:orange'
-ax4.set_ylabel('Sentiment Volume Reddit', color=colorO)
-ax4.plot(Ethdata.Date, Ethdata.SentimentVolumeConsumedReddit, color=colorO)
-ax4.tick_params(axis='y', labelcolor=colorO)
-
-ax5 = ax1.twinx()
-colorP = 'tab:purple'
-ax3.set_ylabel('Social Dominance Reddit', color=colorP)
-ax3.plot(Ethdata.Date, Ethdata.SocialDomReddit, color=colorP)
-ax3.tick_params(axis='y', labelcolor=colorP)
+# ax3 = ax1.twinx()
+# colorG = 'tab:green'
+# ax3.set_ylabel('Social Reddit Volume', color=colorG)
+# ax3.plot(Ethdata.Date, Ethdata.SocialVolumeReddit, color=colorG)
+# ax3.tick_params(axis='y', labelcolor=colorG)
+#
+# ax4 = ax1.twinx()
+# colorO = 'tab:orange'
+# ax4.set_ylabel('Sentiment Volume Reddit', color=colorO)
+# ax4.plot(Ethdata.Date, Ethdata.SentimentVolumeConsumedReddit, color=colorO)
+# ax4.tick_params(axis='y', labelcolor=colorO)
+#
+# ax5 = ax1.twinx()
+# colorP = 'tab:purple'
+# ax3.set_ylabel('Social Dominance Reddit', color=colorP)
+# ax3.plot(Ethdata.Date, Ethdata.SocialDomReddit, color=colorP)
+# ax3.tick_params(axis='y', labelcolor=colorP)
 
 fig.tight_layout()
 plt.show()

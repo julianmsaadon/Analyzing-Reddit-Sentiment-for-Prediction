@@ -30,16 +30,18 @@ ax2.set_ylabel('Sentiment Balance', color=colorB)
 ax2.plot(Ethdata.Date, Ethdata.SentimentBalanceReddit, color=colorB)
 ax2.tick_params(axis='y', labelcolor=colorB)
 
-ax3 = ax1.twinx()
-colorG = 'tab:green'
-ax3.set_ylabel('Sentiment Positive', color=colorG)
-ax3.plot(Ethdata.Date, Ethdata.SentimentPosReddit, color=colorG)
-ax3.tick_params(axis='y', labelcolor=colorG)
-
-ax4 = ax1.twinx()
-colorO = 'tab:orange'
-ax4.set_ylabel('Sentiment Negative', color=colorO)
-ax4.plot(Ethdata.Date, Ethdata.SentimentNegReddit, color=colorO)
-ax4.tick_params(axis='y', labelcolor=colorO)
+# ax3 = ax1.twinx()
+# colorG = 'tab:green'
+# ax3.set_ylabel('Sentiment Positive', color=colorG)
+# ax3.plot(Ethdata.Date, Ethdata.SentimentPosReddit, color=colorG)
+# ax3.tick_params(axis='y', labelcolor=colorG)
+#
+# ax4 = ax1.twinx()
+# colorO = 'tab:orange'
+# ax4.set_ylabel('Sentiment Negative', color=colorO)
+# ax4.plot(Ethdata.Date, Ethdata.SentimentNegReddit, color=colorO)
+# ax4.tick_params(axis='y', labelcolor=colorO)
 fig.tight_layout()
+
+plt.legend(handles=['ClosePrice', 'SentimentBalance'])
 plt.show()

@@ -8,6 +8,7 @@ with open('redditData.csv') as csvfile:
     reader = csv.DictReader(csvfile)
     posts = []
     for row in reader:
+        # add in removed and deleted logic
         posts.append(Post.GetReadRedditCsv(row))
 
 analyzer = SentimentIntensityAnalyzer()

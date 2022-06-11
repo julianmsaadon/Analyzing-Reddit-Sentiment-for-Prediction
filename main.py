@@ -38,5 +38,8 @@ for submission in subreddit.new(limit=103513):
 with open('redditData.csv', 'w', encoding='UTF8', newline='') as file:
     writer = csv.writer(file)
     writer.writerow(Post.GetRedditCsvHeader())
+
+with open('redditData.csv', 'w', encoding='UTF8', newline='') as file:
+    writer = csv.writer(file)
     for i in range(len(Posts)-1):
         writer.writerow(Posts[i].GetRedditCsvString())
