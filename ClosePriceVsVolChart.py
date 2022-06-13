@@ -16,15 +16,18 @@ fig, ax1 = plt.subplots()
 colorR = 'tab:red'
 ax1.set_xlabel('Hour')
 ax1.set_ylabel('Close Price', color=colorR)
-ax1.plot(Ethdata.Date, Ethdata.Closeprice, color=colorR)
+CP = ax1.plot(Ethdata.Date, Ethdata.Closeprice, color=colorR, label='Close Price')
 ax1.tick_params(axis='y', labelcolor=colorR)
 
 ax2 = ax1.twinx()
 colorB = 'tab:blue'
 ax2.set_ylabel('Transaction Volume', color=colorB)
-ax2.plot(Ethdata.Date, Ethdata.TransactionVolume, color=colorB)
+TV = ax2.plot(Ethdata.Date, Ethdata.TransactionVolume, color=colorB, label='Transaction Volume')
 ax2.tick_params(axis='y', labelcolor=colorB)
 
+lines = CP+TV
+labs = [l.get_label() for l in lines]
+ax1.legend(lines, labs, loc=0)
 
 # ax3 = ax1.twinx()
 # colorG = 'tab:green'

@@ -32,7 +32,7 @@ with open('POSTS2021-2022.csv', 'w', encoding='UTF8', newline='') as file:
     writer = csv.writer(file)
     writer.writerow(Post.GetRedditCsvHeader())
     for i in range(len(PostsLIST)):
-        if PostsLIST[i][3] != "[removed]" or PostsLIST[i][3] != "[deleted]":
+        if str(PostsLIST[i][3]) != "[removed]" or str(PostsLIST[i][3]) != "[deleted]":
             writer.writerow([PostsLIST[i][0],
                              PostsLIST[i][1],
                              PostsLIST[i][2],
@@ -48,4 +48,4 @@ with open('POSTS2021-2022.csv', 'w', encoding='UTF8', newline='') as file:
 #         if Posts.Text[i] != "[removed]" or Posts.Text[i] != "[removed]":
 #             writer.writerow(Posts[i].GetRedditCsvString())
 
-
+print(type(str(PostsLIST[0][3])))

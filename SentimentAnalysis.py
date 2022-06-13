@@ -4,12 +4,13 @@ from postobject import Post
 import pandas as pd
 
 
-with open('redditData.csv') as csvfile:
+with open('POSTS2021-2022.csv') as csvfile:
     reader = csv.DictReader(csvfile)
     posts = []
     for row in reader:
         # add in removed and deleted logic
         posts.append(Post.GetReadRedditCsv(row))
+print(len(posts))
 
 analyzer = SentimentIntensityAnalyzer()
 for post in posts:

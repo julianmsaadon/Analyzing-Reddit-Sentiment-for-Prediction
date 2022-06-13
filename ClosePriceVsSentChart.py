@@ -21,14 +21,20 @@ fig, ax1 = plt.subplots()
 colorR = 'tab:red'
 ax1.set_xlabel('Hour')
 ax1.set_ylabel('Close Price', color=colorR)
-ax1.plot(Ethdata.Date, Ethdata.Closeprice, color=colorR)
+CP = ax1.plot(Ethdata.Date, Ethdata.Closeprice, color=colorR, label='Close Price')
 ax1.tick_params(axis='y', labelcolor=colorR)
+# ax1.legend()
 
 ax2 = ax1.twinx()
 colorB = 'tab:blue'
 ax2.set_ylabel('Sentiment Balance', color=colorB)
-ax2.plot(Ethdata.Date, Ethdata.SentimentBalanceReddit, color=colorB)
+SBR = ax2.plot(Ethdata.Date, Ethdata.SentimentBalanceReddit, color=colorB, label='Sentiment Balance')
 ax2.tick_params(axis='y', labelcolor=colorB)
+# ax2.legend(loc=0)
+
+lines = CP+SBR
+labs = [l.get_label() for l in lines]
+ax1.legend(lines, labs, loc=0)
 
 # ax3 = ax1.twinx()
 # colorG = 'tab:green'
@@ -43,5 +49,5 @@ ax2.tick_params(axis='y', labelcolor=colorB)
 # ax4.tick_params(axis='y', labelcolor=colorO)
 fig.tight_layout()
 
-plt.legend(handles=['ClosePrice', 'SentimentBalance'])
+# plt.legend(handles=['ClosePrice', 'SentimentBalance'])
 plt.show()
