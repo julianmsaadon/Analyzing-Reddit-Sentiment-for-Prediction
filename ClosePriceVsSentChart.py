@@ -3,6 +3,10 @@ from ethdataobject import ethdata
 import san
 import csv
 import pandas as pd
+import numpy as np
+from sklearn.preprocessing import MinMaxScaler
+
+
 from postobject import Post
 
 
@@ -20,6 +24,10 @@ fig, ax1 = plt.subplots()
 
 colorR = 'tab:red'
 ax1.set_xlabel('Hour')
+# locator = Ethdata.Date.AutoDateLocator(minticks=6, maxticks=12)
+# formatter = Ethdata.Date.ConciseDateFormatter(locator)
+# ax1.xaxis.set_major_locator(locator)
+# ax1.xaxis.set_major_formatter(formatter)
 ax1.set_ylabel('Close Price', color=colorR)
 CP = ax1.plot(Ethdata.Date, Ethdata.Closeprice, color=colorR, label='Close Price')
 ax1.tick_params(axis='y', labelcolor=colorR)
@@ -35,6 +43,10 @@ ax2.tick_params(axis='y', labelcolor=colorB)
 lines = CP+SBR
 labs = [l.get_label() for l in lines]
 ax1.legend(lines, labs, loc=0)
+
+# scaler=MinMaxScaler(feature_range=(0,1))
+# scaledSent = scaler.fit_transform(np.array(Ethdata.SentimentBalanceReddit).reshape(-1,1))
+# scaledCP = scaler.fit_transform(np.array(Ethdata.Closeprice).reshape(-1,1))
 
 # ax3 = ax1.twinx()
 # colorG = 'tab:green'
