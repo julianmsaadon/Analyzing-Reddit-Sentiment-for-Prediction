@@ -19,47 +19,18 @@ reddit = praw.Reddit(
 subreddit = ['ethtrader']
 
 Posts = []
-timeSeries = pd.date_range("2021-05-18", "2022-05-19", freq="D").strftime('%Y-%m-%d %H:%M:%S')
+timeSeries = pd.date_range("2022-05-17", "2022-05-18", freq="D").strftime('%Y-%m-%d %H:%M:%S')
 ModifiedTimeSeries = pd.date_range("2021-11-11", "2022-05-19", freq="D").strftime('%Y-%m-%d %H:%M:%S')
 print(timeSeries)
 
 # 'a' instead of 'w'
-# with open('redditData.csv', 'w', encoding='UTF8', newline='') as file:
-#     writer = csv.writer(file, delimiter='�')
-#     writer.writerow(Post.GetRedditCsvHeader())
-#     for i in range(len(timeSeries) - 1):
-#         psawSearch = api.search_submissions(
-#             after=timeSeries[i],
-#             before=timeSeries[i + 1],
-#             filter=['id'],
-#             subreddit=subreddit,
-#             limit=None
-#         )
-#         for submission_psaw in psawSearch:
-#             submission_id = submission_psaw.d_['id']
-#             submission = reddit.submission(id=submission_id)
-#             date = datetime.utcfromtimestamp(submission.created_utc)
-#             post = Post(date,
-#                         submission.id,
-#                         submission.title.replace("\n", " ").replace(" ", " "),
-#                         submission.selftext.replace("\n", " ").replace(" ", " "),
-#                         submission.ups,
-#                         submission.downs)
-#             Posts.append(post)
-#
-#     # with open('redditData.csv', 'a', encoding='UTF8', newline='') as csvfile:
-#         for n in range(len(Posts)-1):
-#             if (str(Posts[n].Text) != "[removed]") and (str(Posts[n].Text) != "[deleted]"):
-#                 writer.writerow(Posts[n].GetRedditCsvString())
-#         Posts = []
-
-#### For second runthru if needed
-with open('redditData.csv', 'a', encoding='UTF8', newline='') as file:
+with open('redditData.csv', 'w', encoding='UTF8', newline='') as file:
     writer = csv.writer(file, delimiter='�')
-    for i in range(len(ModifiedTimeSeries) - 1):
+    writer.writerow(Post.GetRedditCsvHeader())
+    for i in range(len(timeSeries) - 1):
         psawSearch = api.search_submissions(
-            after=ModifiedTimeSeries[i],
-            before=ModifiedTimeSeries[i + 1],
+            after=timeSeries[i],
+            before=timeSeries[i + 1],
             filter=['id'],
             subreddit=subreddit,
             limit=None
@@ -70,15 +41,44 @@ with open('redditData.csv', 'a', encoding='UTF8', newline='') as file:
             date = datetime.utcfromtimestamp(submission.created_utc)
             post = Post(date,
                         submission.id,
-                        submission.title.replace("\n", " "),
-                        submission.selftext.replace("\n", " "),
+                        submission.title.replace("\n", " ").replace(" ", " "),
+                        submission.selftext.replace("\n", " ").replace(" ", " "),
                         submission.ups,
                         submission.downs)
             Posts.append(post)
 
     # with open('redditData.csv', 'a', encoding='UTF8', newline='') as csvfile:
         for n in range(len(Posts)-1):
-            if (Posts[n].Text != '[removed]') and (Posts[n].Text != '[deleted]'):
-                # writer = csv.writer(file)
+            if (str(Posts[n].Text) != "[removed]") and (str(Posts[n].Text) != "[deleted]"):
                 writer.writerow(Posts[n].GetRedditCsvString())
         Posts = []
+
+#### For second runthru if needed
+# with open('redditData.csv', 'a', encoding='UTF8', newline='') as file:
+#     writer = csv.writer(file, delimiter='�')
+#     for i in range(len(ModifiedTimeSeries) - 1):
+#         psawSearch = api.search_submissions(
+#             after=ModifiedTimeSeries[i],
+#             before=ModifiedTimeSeries[i + 1],
+#             filter=['id'],
+#             subreddit=subreddit,
+#             limit=None
+#         )
+#         for submission_psaw in psawSearch:
+#             submission_id = submission_psaw.d_['id']
+#             submission = reddit.submission(id=submission_id)
+#             date = datetime.utcfromtimestamp(submission.created_utc)
+#             post = Post(date,
+#                         submission.id,
+#                         submission.title.replace("\n", " "),
+#                         submission.selftext.replace("\n", " "),
+#                         submission.ups,
+#                         submission.downs)
+#             Posts.append(post)
+#
+#     # with open('redditData.csv', 'a', encoding='UTF8', newline='') as csvfile:
+#         for n in range(len(Posts)-1):
+#             if (Posts[n].Text != '[removed]') and (Posts[n].Text != '[deleted]'):
+#                 # writer = csv.writer(file)
+#                 writer.writerow(Posts[n].GetRedditCsvString())
+#         Posts = []

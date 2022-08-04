@@ -3,10 +3,31 @@
   <component name="CsvFileAttributes">
     <option name="attributeMap">
       <map>
+        <entry key="/1stHalfRedditData.csv">
+          <value>
+            <Attribute>
+              <option name="separator" value=":" />
+            </Attribute>
+          </value>
+        </entry>
+        <entry key="/2ndHalfRedditData.csv">
+          <value>
+            <Attribute>
+              <option name="separator" value=":" />
+            </Attribute>
+          </value>
+        </entry>
         <entry key="/2ndHalfredditData.csv">
           <value>
             <Attribute>
               <option name="separator" value="," />
+            </Attribute>
+          </value>
+        </entry>
+        <entry key="/COPYofRedditData.csv">
+          <value>
+            <Attribute>
+              <option name="separator" value=":" />
             </Attribute>
           </value>
         </entry>
@@ -17,17 +38,17 @@
             </Attribute>
           </value>
         </entry>
-        <entry key="/POSTS2021-2022.csv">
+        <entry key="/postSentiment.csv">
           <value>
             <Attribute>
               <option name="separator" value="," />
             </Attribute>
           </value>
         </entry>
-        <entry key="/postSentiment.csv">
+        <entry key="/redditData copy.csv">
           <value>
             <Attribute>
-              <option name="separator" value="," />
+              <option name="separator" value=":" />
             </Attribute>
           </value>
         </entry>
