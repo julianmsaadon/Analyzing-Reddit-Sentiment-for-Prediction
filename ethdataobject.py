@@ -23,3 +23,8 @@ class ethdata:
 
     def GetReadethdataCsv(row):
         return ethdata(row['Date'], row['Closeprice'], row['TransactionVolume'], row['EthSpentOverTime'], row['SocialVolumeReddit'], row['GasUsed'], row['SentimentPosReddit'], row['SentimentNegReddit'], row['SentimentBalanceReddit'], row['SentimentVolumeConsumedReddit'], row['SocialDomReddit'], row['DailyAddresses'])
+
+    def GetEthdataInfo(self):
+        return [self.Closeprice, self.TransactionVolume, self.EthSpentOverTime, self.SocialVolumeReddit, self.GasUsed,
+                self.SentimentPosReddit, self.SentimentNegReddit, self.SentimentBalanceReddit,
+                self.SentimentVolumeConsumedReddit, self.SocialDomReddit, self.DailyAddresses]

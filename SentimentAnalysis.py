@@ -62,7 +62,7 @@ for post in posts:
 # 2nd half
 with open('postSentiment.csv', 'a', encoding='UTF8', newline='') as file:
     writer = csv.writer(file, delimiter='�')
-    writer.writerow(Post.GetSentimentCsvHeader())
+    # writer.writerow(Post.GetSentimentCsvHeader())
     for i in range(len(posts)-1):
         if (posts[i].GetTitleCompound() != 0.0) or (posts[i].GetTextCompound() != 0.0):
             posts[i].SetWeight(0.7)

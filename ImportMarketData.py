@@ -1,7 +1,5 @@
 import san
 import pandas as pd
-import time
-import datetime
 from ethdataobject import ethdata
 import csv
 
@@ -18,7 +16,6 @@ def GetDataFrameDictionary(dataframe, keyName, valueName):
     for index, row in dataframe.iterrows():
         tempDict[row[keyName]] = row[valueName]
     return tempDict
-# ohlc_df = san.get("ohlc/ethereum", from_date=from_date, to_date=to_date, interval="1h")
 
 
 Closeprice_df = san.get("price_usd/ethereum", from_date=from_date, to_date=to_date, interval=interval)
@@ -50,7 +47,7 @@ SentVolRDict = GetDataFrameDictionary(SentVolR_df.reset_index().assign(data=lamb
 SocDomRDict = GetDataFrameDictionary(SocDomR_df.reset_index().assign(data=lambda x: x['datetime'].dt.strftime("%Y-%m-%d %H:%M:%S"))[['data','value']], 'data', 'value')
 DailyActiveAddressesDict = GetDataFrameDictionary(DailyActiveAddresses_df.reset_index().assign(data=lambda x: x['datetime'].dt.strftime("%Y-%m-%d %H:%M:%S"))[['data','value']], 'data', 'value')
 TransVolEthDict = GetDataFrameDictionary(TransVolEth_df.reset_index().assign(data=lambda x: x['datetime'].dt.strftime("%Y-%m-%d %H:%M:%S"))[['data','value']], 'data', 'value')
-print(SocVolRDict)
+print(ClosepriceDict)
 
 #For each data frame, convert into dictionary with Key = datetime, value = value
 
