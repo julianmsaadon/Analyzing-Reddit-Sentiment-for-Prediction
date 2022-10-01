@@ -33,9 +33,7 @@ class Sentiment:
                                  0, 0)
 
     def GetSentimentInfo(self):
-        return [self.ID, self.WeightedAVG, self.TitleNegative, self.TitleNeutral, self.TitlePositive,
-                self.TitleCompound, self.TextNegative, self.TextNeutral, self.TextPositive, self.TextCompound,
-                self.Upvotes, self.Downvotes]
+        return [self.ID, self.WeightedAVG, self.TitleNegative, self.TitleNeutral, self.TitlePositive, self.TitleCompound, self.TextNegative, self.TextNeutral, self.TextPositive, self.TextCompound, self.Upvotes, self.Downvotes]
 
     # def hour_rounder(self):
     #     return (self.replace(second=0, microsecond=0, minute=0, hour=self.hour)

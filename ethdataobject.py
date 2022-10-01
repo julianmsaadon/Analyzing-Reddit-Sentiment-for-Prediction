@@ -28,3 +28,6 @@ class ethdata:
         return [self.Closeprice, self.TransactionVolume, self.EthSpentOverTime, self.SocialVolumeReddit, self.GasUsed,
                 self.SentimentPosReddit, self.SentimentNegReddit, self.SentimentBalanceReddit,
                 self.SentimentVolumeConsumedReddit, self.SocialDomReddit, self.DailyAddresses]
+
+    def GetEthVal(self):
+        return self.Closeprice, self.TransactionVolume, self.EthSpentOverTime, self.SocialVolumeReddit, self.GasUsed, self.SentimentPosReddit, self.SentimentNegReddit, self.SentimentBalanceReddit, self.SentimentVolumeConsumedReddit, self.SocialDomReddit, self.DailyAddresses

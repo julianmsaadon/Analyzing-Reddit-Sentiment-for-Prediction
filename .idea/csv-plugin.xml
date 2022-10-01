@@ -3,28 +3,14 @@
   <component name="CsvFileAttributes">
     <option name="attributeMap">
       <map>
-        <entry key="/1stHalfRedditData.csv">
-          <value>
-            <Attribute>
-              <option name="separator" value=":" />
-            </Attribute>
-          </value>
-        </entry>
-        <entry key="/2ndHalfRedditData.csv">
-          <value>
-            <Attribute>
-              <option name="separator" value=":" />
-            </Attribute>
-          </value>
-        </entry>
-        <entry key="/2ndHalfredditData.csv">
+        <entry key="/FullData.csv">
           <value>
             <Attribute>
               <option name="separator" value="," />
             </Attribute>
           </value>
         </entry>
-        <entry key="/COPYofRedditData.csv">
+        <entry key="/Last15000Posts.csv">
           <value>
             <Attribute>
               <option name="separator" value=":" />
@@ -38,6 +24,13 @@
             </Attribute>
           </value>
         </entry>
+        <entry key="/OfficialRedditPosts.csv">
+          <value>
+            <Attribute>
+              <option name="separator" value=":" />
+            </Attribute>
+          </value>
+        </entry>
         <entry key="/postSentiment.csv">
           <value>
             <Attribute>
@@ -45,21 +38,7 @@
             </Attribute>
           </value>
         </entry>
-        <entry key="/redditData copy.csv">
-          <value>
-            <Attribute>
-              <option name="separator" value=":" />
-            </Attribute>
-          </value>
-        </entry>
-        <entry key="/redditData.csv">
-          <value>
-            <Attribute>
-              <option name="separator" value="," />
-            </Attribute>
-          </value>
-        </entry>
-        <entry key="/redditDataCOPY.csv">
+        <entry key="/redditdatafiles/POSTS2021-2022.csv">
           <value>
             <Attribute>
               <option name="separator" value="," />
