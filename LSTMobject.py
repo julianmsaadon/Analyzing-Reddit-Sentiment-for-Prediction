@@ -1,4 +1,4 @@
-class LSTM:
+class LSTMobject:
     # def __init(self, ethVal, sentVal):
     #     self.Date = ethVal.Date
 

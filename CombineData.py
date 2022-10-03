@@ -243,7 +243,7 @@ for i in timeSeries:
         # masterDict[i] = LSTM(LSTM.GetSentVal(sentVal), LSTM.GetEthVal(ethVal))
 print(masterDict)
 with open('FullData.csv', 'w', encoding='UTF8', newline='') as file:
-    writer = csv.writer(file, delimiter='�')# print(masterDict)
+    writer = csv.writer(file) #delimiter='�'# print(masterDict)
     writer.writerow(LSTM.GetLSTMCsvHeader())
     for i in masterDict:
         LSTMVal = masterDict.get(i)
